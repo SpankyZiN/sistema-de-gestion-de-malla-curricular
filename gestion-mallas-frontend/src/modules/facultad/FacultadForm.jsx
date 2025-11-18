@@ -142,7 +142,6 @@ function FacultadForm() {
             className="select"
           >
             <option value="ACTIVA">ACTIVA</option>
-            <option value="INACTIVA">INACTIVA</option>
           </select>
         </div>
 

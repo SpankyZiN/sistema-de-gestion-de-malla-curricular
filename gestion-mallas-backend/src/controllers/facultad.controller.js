@@ -1,12 +1,10 @@
-// src/controllers/facultad.controller.js
 const { pool } = require('../db')
 
-// GET /api/facultades
 async function getFacultades(req, res) {
   try {
     const result = await pool.query(
       'SELECT id, codigo, nombre, estado FROM facultad WHERE estado = $1 OR estado IS NULL ORDER BY id',
-      ['ACTIVA'] // por si luego querés borrado lógico
+      ['ACTIVA'] 
     )
     res.json(result.rows)
   } catch (error) {
@@ -15,7 +13,6 @@ async function getFacultades(req, res) {
   }
 }
 
-// GET /api/facultades/:id
 async function getFacultadById(req, res) {
   const { id } = req.params
   try {
@@ -33,7 +30,6 @@ async function getFacultadById(req, res) {
   }
 }
 
-// POST /api/facultades
 async function createFacultad(req, res) {
   const { codigo, nombre, estado = 'ACTIVA' } = req.body
 
@@ -53,7 +49,7 @@ async function createFacultad(req, res) {
   } catch (error) {
     console.error('Error al crear facultad:', error)
 
-    if (error.code === '23505') { // unique_violation
+    if (error.code === '23505') { 
       return res.status(400).json({ message: 'El código de facultad ya existe' })
     }
 
@@ -61,7 +57,6 @@ async function createFacultad(req, res) {
   }
 }
 
-// PUT /api/facultades/:id
 async function updateFacultad(req, res) {
   const { id } = req.params
   const { codigo, nombre, estado } = req.body
@@ -93,12 +88,10 @@ async function updateFacultad(req, res) {
   }
 }
 
-// DELETE /api/facultades/:id
 async function deleteFacultad(req, res) {
   const { id } = req.params
 
   try {
-    // si querés borrado definitivo:
     const result = await pool.query(
       'DELETE FROM facultad WHERE id = $1 RETURNING id',
       [id]

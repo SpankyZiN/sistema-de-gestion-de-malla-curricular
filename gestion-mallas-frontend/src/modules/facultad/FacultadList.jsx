@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { getFacultades, deleteFacultad } from './facultadService'
 
+
 function FacultadList() {
   const [facultades, setFacultades] = useState([])
   const [busqueda, setBusqueda] = useState('')
@@ -12,6 +13,19 @@ function FacultadList() {
   useEffect(() => {
     cargarDatos()
   }, [])
+
+    useEffect(() => {
+    const abrirManual = (e) => {
+      if (e.key === 'F1') {
+        e.preventDefault()
+        window.open('/manuales/Manual_Facultad.pdf', '_blank')
+      }
+    }
+
+    window.addEventListener('keydown', abrirManual)
+    return () => window.removeEventListener('keydown', abrirManual)
+  }, [])
+
 
   const cargarDatos = async () => {
     try {
