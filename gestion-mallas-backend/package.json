@@ -1,18 +1,30 @@
 {
   "name": "gestion-mallas-backend",
   "version": "1.0.0",
-  "main": "src/server.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/server.js",
-    "start": "node src/server.js"
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/server.ts"
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/pg": "^8.15.6",
     "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "5.1.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
     "pg": "^8.13.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.0"
+    "@types/express": "^5.0.5",
+    "@types/node": "^24.10.1",
+    "eslint": "^9.39.1",
+    "nodemon": "^3.1.11",
+    "prettier": "^3.6.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   }
 }

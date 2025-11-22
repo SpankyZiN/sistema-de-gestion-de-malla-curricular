@@ -9,7 +9,7 @@ El módulo implementado permite **registrar, modificar y administrar**
 las facultades de la institución, cumpliendo estrictamente con los
 requerimientos del enunciado académico.
 
-------------------------------------------------------------------------
+---
 
 ## 🚀 **Tecnologías utilizadas**
 
@@ -22,7 +22,7 @@ Base de Datos: - **PostgreSQL** - Cliente gráfico: **pgAdmin 4**
 
 Herramientas: - **VS Code** - **Postman** - **Git/GitHub**
 
-------------------------------------------------------------------------
+---
 
 ## 🏗️ **Arquitectura general del proyecto**
 
@@ -37,19 +37,13 @@ Herramientas: - **VS Code** - **Postman** - **Git/GitHub**
        │     └── package.json
        │
        ├── gestion-mallas-frontend/
-       │     ├── src/
-       │     │     ├── modules/facultad/
-       │     │     ├── App.jsx
-       │     │     ├── main.jsx
-       │     │     └── index.css
-       │     └── package.json
        │
        └── README.md
 
 El módulo "Facultad" se encuentra completamente funcional tanto en el
 backend como en el frontend.
 
-------------------------------------------------------------------------
+---
 
 ## 🟩 **Descripción del Módulo Facultad**
 
@@ -65,15 +59,15 @@ Este módulo cumple exactamente con lo solicitado:
 
 ### **1. Registrar facultades**
 
--   Formulario con código, nombre y estado.
--   Validaciones básicas.
--   Inserción real en la BD PostgreSQL.
+- Formulario con código, nombre y estado.
+- Validaciones básicas.
+- Inserción real en la BD PostgreSQL.
 
 ### **2. Modificar facultades**
 
--   Edición de registros existentes.
--   Actualización mediante API REST.
--   Sin campos adicionales no solicitados.
+- Edición de registros existentes.
+- Actualización mediante API REST.
+- Sin campos adicionales no solicitados.
 
 ### **3. Administrar facultades**
 
@@ -82,16 +76,16 @@ código. - Botones para editar y eliminar. - Estado ACTIVA/INACTIVA.
 
 ### **4. Persistencia real**
 
--   PostgreSQL como motor de base de datos.
--   Tabla `facultad` creada especialmente para este módulo.
+- PostgreSQL como motor de base de datos.
+- Tabla `facultad` creada especialmente para este módulo.
 
-------------------------------------------------------------------------
+---
 
 ## 🗄️ **Base de Datos**
 
 Tabla utilizada:
 
-``` sql
+```sql
 CREATE TABLE facultad (
   id SERIAL PRIMARY KEY,
   codigo VARCHAR(10) NOT NULL UNIQUE,
@@ -102,7 +96,7 @@ CREATE TABLE facultad (
 );
 ```
 
-------------------------------------------------------------------------
+---
 
 ## 🌐 **API REST (Express 5.1)**
 
@@ -110,15 +104,17 @@ Base URL:
 
     http://localhost:3000/api/facultades
 
-  Método   Endpoint   Descripción
-  -------- ---------- ---------------------------------
-  GET      `/`        Lista todas las facultades
-  GET      `/:id`     Obtiene una facultad por ID
-  POST     `/`        Crea una nueva facultad
-  PUT      `/:id`     Modifica una facultad existente
-  DELETE   `/:id`     Elimina una facultad
+Método Endpoint Descripción
 
-------------------------------------------------------------------------
+---
+
+GET `/` Lista todas las facultades
+GET `/:id` Obtiene una facultad por ID
+POST `/` Crea una nueva facultad
+PUT `/:id` Modifica una facultad existente
+DELETE `/:id` Elimina una facultad
+
+---
 
 ## 🖥️ **Front-End (React 18)**
 
@@ -126,68 +122,70 @@ Pantallas implementadas:
 
 ### ✔ Lista de facultades
 
--   Tabla simple
--   Búsqueda por nombre/código
--   Botones para editar y eliminar
+- Tabla simple
+- Búsqueda por nombre/código
+- Botones para editar y eliminar
 
 ### ✔ Formulario de facultad
 
--   Registro de nuevas facultades\
--   Edición de facultades existentes\
--   Validaciones mínimas\
--   Redirecciones apropiadas
+- Registro de nuevas facultades\
+- Edición de facultades existentes\
+- Validaciones mínimas\
+- Redirecciones apropiadas
 
 ### ✔ Integración total con backend
 
 El frontend utiliza `fetch()` para conectarse al API real.
 
-------------------------------------------------------------------------
+---
 
 ## ▶️ **Cómo ejecutar el proyecto**
 
 ### **1. Backend**
 
-``` bash
+```bash
 cd gestion-mallas-backend
 npm install
 npm run dev
 ```
 
 Servidor disponible en:\
-👉 http://localhost:3000
+👉 <http://localhost:3000>
 
 ### **2. Frontend**
 
-``` bash
+```bash
 cd gestion-mallas-frontend
 npm install
 npm run dev
 ```
 
 Sitio disponible en:\
-👉 http://localhost:5173
+👉 <http://localhost:5173>
 
-------------------------------------------------------------------------
+---
 
 ## 🧪 **Pruebas con Postman**
 
--   Probar POST `/api/facultades`\
--   Probar GET `/api/facultades`\
--   Probar PUT `/api/facultades/:id`\
--   Probar DELETE `/api/facultades/:id`
+- Probar POST `/api/facultades`\
+- Probar GET `/api/facultades`\
+- Probar PUT `/api/facultades/:id`\
+- Probar DELETE `/api/facultades/:id`
 
-------------------------------------------------------------------------
+---
 
 ## 🎯 **Estado actual del proyecto**
 
-  Módulo             Estado
-  ------------------ --------------
-  Facultad           ✅ COMPLETO
-  Carrera            ⏳ Pendiente
-  Materia            ⏳ Pendiente
-  Malla Curricular   ⏳ Pendiente
+Módulo Estado
 
-------------------------------------------------------------------------
+---
+
+Facultad ✅ COMPLETO
+Carrera ⏳ Pendiente
+Materia ⏳ Pendiente
+Malla Curricular ⏳ Pendiente
+
+---
 
 ## 📌 **Nota final**
 
