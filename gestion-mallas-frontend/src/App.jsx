@@ -1,20 +1,29 @@
-import { Routes, Route, Link } from 'react-router-dom'
-import FacultadList from './modules/facultad/FacultadList.jsx'
-import FacultadForm from './modules/facultad/FacultadForm.jsx'
+import { Routes, Route, Link, useLocation } from "react-router-dom"
+import FacultadList from "./modules/facultad/FacultadList.jsx"
+import FacultadForm from "./modules/facultad/FacultadForm.jsx"
+import CarreraList from "./modules/carrera/CarreraList.jsx"
+import CarreraForm from "./modules/carrera/CarreraForm.jsx"
 
 function App() {
+  const location = useLocation()
+
+  let subtitle = "Módulo de Facultades"
+  if (location.pathname.startsWith("/carreras")) {
+    subtitle = "Módulo de Carreras"
+  }
+
   return (
     <div className="app">
       <header className="app-header">
         <div className="app-header-inner">
           <div>
             <h1 className="app-title">Sistema de Gestión de Mallas Curriculares</h1>
-            <p className="app-subtitle">Módulo de Facultades</p>
+            <p className="app-subtitle">{subtitle}</p>
           </div>
+
           <nav className="app-nav">
-            <Link to="/facultades" className="app-nav-link">
-              Facultades
-            </Link>
+            <Link to="/facultades" className="app-nav-link">Facultades</Link>
+            <Link to="/carreras" className="app-nav-link">Carreras</Link>
           </nav>
         </div>
       </header>
@@ -25,6 +34,10 @@ function App() {
             <Route path="/facultades" element={<FacultadList />} />
             <Route path="/facultades/nueva" element={<FacultadForm />} />
             <Route path="/facultades/:id/editar" element={<FacultadForm />} />
+
+            <Route path="/carreras" element={<CarreraList />} />
+            <Route path="/carreras/nueva" element={<CarreraForm />} />
+            <Route path="/carreras/:id/editar" element={<CarreraForm />} />
           </Routes>
         </div>
       </main>

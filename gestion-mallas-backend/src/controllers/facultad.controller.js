@@ -3,8 +3,8 @@ const { pool } = require('../db')
 async function getFacultades(req, res) {
   try {
     const result = await pool.query(
-      'SELECT id, codigo, nombre, estado FROM facultad WHERE estado = $1 OR estado IS NULL ORDER BY id',
-      ['ACTIVA'] 
+      'SELECT id, codigo, nombre, estado FROM facultad WHERE estado != $1 OR estado IS NULL ORDER BY id',
+      ['INACTIVO'] 
     )
     res.json(result.rows)
   } catch (error) {

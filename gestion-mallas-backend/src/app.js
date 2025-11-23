@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const facultadRoutes = require('./routes/facultad.routes')
+const carreraRoutes = require('./routes/carrera.routes')
 
 const app = express()
 
@@ -12,5 +13,6 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/facultades', facultadRoutes)
+app.use('/api/carreras', carreraRoutes)
 
 module.exports = app
