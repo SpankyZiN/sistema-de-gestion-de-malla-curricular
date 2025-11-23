@@ -183,7 +183,7 @@ Sitio disponible en:\
   Módulo             Estado
   ------------------ --------------
   Facultad           ✅ COMPLETO
-  Carrera            ⏳ Pendiente
+  Carrera            ✅ Pendiente
   Materia            ⏳ Pendiente
   Malla Curricular   ⏳ Pendiente
 
