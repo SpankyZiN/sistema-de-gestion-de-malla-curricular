@@ -11,6 +11,17 @@ function CarreraList() {
   useEffect(() => {
     cargarCarreras()
   }, [])
+  useEffect(() => {
+  const handleKey = (e) => {
+    if (e.key === "F1") {
+      e.preventDefault()
+      window.open("/manuales/Manual_Carrera.pdf", "_blank")
+    }
+  }
+
+  window.addEventListener("keydown", handleKey)
+  return () => window.removeEventListener("keydown", handleKey)
+}, [])
 
   const cargarCarreras = async () => {
     try {

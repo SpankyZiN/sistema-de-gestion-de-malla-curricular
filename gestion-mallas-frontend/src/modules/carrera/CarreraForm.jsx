@@ -27,10 +27,21 @@ function CarreraForm() {
     cargarFacultades()
     if (esEdicion) cargarCarrera()
   }, [id])
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === "F1") {
+        e.preventDefault()
+        window.open("/manuales/Manual_Carrera.pdf", "_blank")
+      }
+    }
+
+    window.addEventListener("keydown", handleKey)
+    return () => window.removeEventListener("keydown", handleKey)
+  }, [])
+
 
   const cargarFacultades = async () => {
     const data = await getFacultades()
-    // opcional lógico: solo activas
     setFacultades(data.filter(f => f.estado === 'ACTIVA'))
   }
 
@@ -70,6 +81,7 @@ function CarreraForm() {
   }
 
   return (
+    
     <div>
       <div className="module-header">
         <h2 className="module-title">
