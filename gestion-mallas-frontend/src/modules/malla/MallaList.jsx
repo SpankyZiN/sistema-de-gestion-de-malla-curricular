@@ -11,7 +11,17 @@ function MallaList() {
   useEffect(() => {
     cargarMallas()
   }, [])
+useEffect(() => {
+  const handleKey = (e) => {
+    if (e.key === "F1") {
+      e.preventDefault()
+      window.open("/manuales/Manual_Malla.pdf", "_blank")
+    }
+  }
 
+  window.addEventListener("keydown", handleKey)
+  return () => window.removeEventListener("keydown", handleKey)
+}, [])
   const cargarMallas = async () => {
     try {
       setCargando(true)
